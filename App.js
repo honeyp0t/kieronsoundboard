@@ -3,6 +3,58 @@ import { Dimensions, StatusBar, TouchableHighlight, StyleSheet, Image, Text, Vie
 import Header from './components/header';
 //import Sound from 'react-native-sound';
 
+var data = {
+    rows: [{
+            cols: [{
+                    img: require('./resources/img/dreamer.jpg')
+                },
+                {
+                    img: require('./resources/img/freakout.jpg')
+                },
+                {
+                    img: require('./resources/img/hush.jpeg')
+                }
+            ]
+        },
+        {
+            cols: [{
+                    img: require('./resources/img/retard.jpg')
+                },
+                {
+                    img: require('./resources/img/loving.jpg')
+                },
+                {
+                    img: require('./resources/img/hamster.jpg')
+                }
+            ]
+        },
+        {
+            cols: [{
+                    img: require('./resources/img/rage.jpg')
+                },
+                {
+                    img: require('./resources/img/prettyboi.jpg')
+                },
+                {
+                    img: require('./resources/img/cute.jpg')
+                }
+            ]
+        },
+        {
+            cols: [{
+                    img: require('./resources/img/pissedoff.jpg')
+                },
+                {
+                    img: require('./resources/img/pissedoff2.jpg')
+                },
+                {
+                    img: require('./resources/img/pissedoff3.jpg')
+                }
+            ]
+        },
+    ]
+};
+
 export default class App extends React.Component {
   render() {
 
@@ -13,31 +65,34 @@ export default class App extends React.Component {
               <View style={styles.header}>
                   <Image source={require('./resources/img/header.png')} style={styles.headerimg} resizeMode="contain" />
               </View>
-              {this.newRow()}
-              {this.newRow()}
-              {this.newRow()}
-              {this.newRow()}
+              {
+                  data.rows.map((row, rowIdx) => {
+                      return this.newRow(row, rowIdx);
+                  })
+              }
           </View>
       </View>
     );
   }
 
-  newRow() {
+  newRow(row, rowIdx) {
 	return (
-        <View style={styles.imagerow}>
-		  {this.newImage('dreamer.jpg')}
-		  {this.newImage('freakout.jpg')}
-		  {this.newImage('hush.jpeg')}
+        <View key={rowIdx} style={styles.imagerow}>
+          {
+              row.cols.map((col, colIdx) => {
+                  return this.newImage(col.img, rowIdx + ':' + colIdx);
+              })
+          }
 		</View>
 	);
   }
 
-  newImage(imgname) {
+  newImage(img, key) {
 //      var clip = new Sound(require('./frog.wav'));
 
 	return (
-      <TouchableHighlight style={styles.touchable} onPress={this.playSound}>
-          <Image source={require('./resources/img/lul.png')} style={styles.img} resizeMode="contain"/>
+      <TouchableHighlight key={key} style={styles.touchable} onPress={this.playSound}>
+          <Image source={img} style={styles.img} resizeMode="contain"/>
       </TouchableHighlight>
 	);
   }
@@ -50,14 +105,9 @@ export default class App extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-//    flex: 1,
-//    flexDirection: 'column',
     height: (Dimensions.get('window').height - StatusBar.currentHeight),
     backgroundColor: '#aaaaff',
     alignItems: 'center',
-//    paddingTop: 10, // TODO bör vara storlek på telefonuits topram, gör till komponennt istället
-	//height:
- //   justifyContent: 'space-around',
   },
   header: {
     flex: 1,
@@ -74,7 +124,6 @@ const styles = StyleSheet.create({
   imagerow: {
     flex: 1,
 	flexDirection: 'row',
-//	justifyContent: 'space-around',
 	backgroundColor: '#bbccaa',
   },
   img: {
