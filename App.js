@@ -1,5 +1,5 @@
 import React from 'react';
-import { TouchableHighlight, StyleSheet, Image, Text, View } from 'react-native';
+import { Dimensions, StatusBar, TouchableHighlight, StyleSheet, Image, Text, View } from 'react-native';
 import Header from './components/header';
 //import Sound from 'react-native-sound';
 
@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
   container: {
 //    flex: 1,
 //    flexDirection: 'column',
-    height: 500,
+    height: (Dimensions.get('window').height - StatusBar.currentHeight),
     backgroundColor: '#aaaaff',
     alignItems: 'center',
 //    paddingTop: 10, // TODO bör vara storlek på telefonuits topram, gör till komponennt istället
@@ -60,12 +60,16 @@ const styles = StyleSheet.create({
  //   justifyContent: 'space-around',
   },
   header: {
-    flex: 1.5,
+    flex: 1,
+    alignItems: 'center',
     flexDirection: 'row',
     backgroundColor: '#ddccee',
   },
   headerimg: {
       flex: 1,
+      marginTop: 0,
+      paddingTop: 0,
+      backgroundColor: '#aaccdd',
   },
   imagerow: {
     flex: 1,
