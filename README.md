@@ -1,3 +1,15 @@
+# KieronSoundboard
+
+This is a soundboard I made in react native a while back to mess with a friend.
+
+# Building and running
+
+Fuck if I know.
+Not sure if it even compiles in its current state.
+I had to hack around in node_modules to workaround some problems I think.
+
+# Create React Native App doc
+
 This project was bootstrapped with [Create React Native App](https://github.com/react-community/create-react-native-app).
 
 Below you'll find information about performing common tasks. The most recent version of this guide is available [here](https://github.com/react-community/create-react-native-app/blob/master/react-native-scripts/template/README.md).
