@@ -106,31 +106,31 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
   container: {
     height: (Dimensions.get('window').height - StatusBar.currentHeight),
-    backgroundColor: '#aaaaff',
+    backgroundColor: '#01050c',
     alignItems: 'center',
   },
   header: {
     flex: 1,
     alignItems: 'center',
     flexDirection: 'row',
-    backgroundColor: '#ddccee',
+    //backgroundColor: '#ddccee',
   },
   headerimg: {
       flex: 1,
       marginTop: 0,
       paddingTop: 0,
-      backgroundColor: '#aaccdd',
+      //backgroundColor: '#aaccdd',
   },
   imagerow: {
     flex: 1,
 	flexDirection: 'row',
-	backgroundColor: '#bbccaa',
+	//backgroundColor: '#bbccaa',
   },
   img: {
   	flex: 1,
 	width: "100%",
 	height: "100%",
-	backgroundColor: '#bbaabb',
+	//backgroundColor: '#bbaabb',
 	//flexDirection: 'column',
 	resizeMode: 'contain',
 	margin: 4,
@@ -139,5 +139,6 @@ const styles = StyleSheet.create({
       flex: 1,
       width: '33%',
       height: '100%',
+      borderWidth: 0,
   },
 });
